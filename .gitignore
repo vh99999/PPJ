@@ -1,0 +1,41 @@
+# Unity generated files
+[Ll]ibrary/
+[Tt]emp/
+[Dd]ebug/
+[Dd]ebugPublic/
+[Tt]estResults/
+
+# Build results
+[Aa]ssets/AssetStoreTools*
+
+# User-specific files
+userprefs
+
+# Windows specific
+[Dd]esktop.ini
+Thumbs.db
+
+# macOS specific
+.DS_Store
+
+# Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
+
+# JetBrains Rider
+.idea/
+
+# VS Code
+.vscode/
+
+# User-specific
+.vs/
+.vs2019/
+
+# Unity3D config folder
+.idea/
+
+# Uncomment if you have a config folder in your project
+# .config/

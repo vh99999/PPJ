@@ -9,13 +9,13 @@ namespace Platformer
         public float movingSpeed;
         public float jumpForce;
         private float moveInput;
-        private bool doubleJump = true;
+        public bool doubleJump = true;
 
         private bool facingRight = false;
         [HideInInspector]
         public bool deathState = false;
 
-        private bool isGrounded;
+        public bool isGrounded;
         public Transform groundCheck;
 
         private Rigidbody2D rigidbody;

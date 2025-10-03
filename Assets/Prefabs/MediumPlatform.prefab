@@ -356,7 +356,7 @@ GameObject:
   - component: {fileID: 1461083575725307442}
   m_Layer: 0
   m_Name: MediumPlatform
-  m_TagString: Untagged
+  m_TagString: Plataforma
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

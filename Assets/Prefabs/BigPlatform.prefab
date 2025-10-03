@@ -958,7 +958,7 @@ GameObject:
   - component: {fileID: 2698390382683551880}
   m_Layer: 0
   m_Name: BigPlatform
-  m_TagString: Untagged
+  m_TagString: Plataforma
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

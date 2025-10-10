@@ -956,6 +956,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8871882304081888575}
   - component: {fileID: 2698390382683551880}
+  - component: {fileID: -4300719119877358647}
   m_Layer: 0
   m_Name: BigPlatform
   m_TagString: Plataforma
@@ -1041,6 +1042,33 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 15.791128, y: 0.9679146}
   m_EdgeRadius: 0
+--- !u!50 &-4300719119877358647
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5005818554595766305}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
 --- !u!1 &5980805412454026216
 GameObject:
   m_ObjectHideFlags: 0

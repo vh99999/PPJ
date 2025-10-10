@@ -8,8 +8,8 @@ public class DestroyerScript : MonoBehaviour {
 
     private void Start()
     {
-        GameOver.gameObject.SetActive(false);
-        Time.timeScale = 1;
+      //  GameOver.gameObject.SetActive(false);
+      //  Time.timeScale = 1;
     }
 
     void OnTriggerEnter2D(Collider2D outro){
@@ -17,7 +17,7 @@ public class DestroyerScript : MonoBehaviour {
         if (outro.gameObject.tag == "Player")
         {
             Time.timeScale = 0;
-            GameOver.gameObject.SetActive(true);
+          //  GameOver.gameObject.SetActive(true);
             return;
         }
         else

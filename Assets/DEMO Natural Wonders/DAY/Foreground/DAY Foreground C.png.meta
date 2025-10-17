@@ -156,7 +156,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      DAY Foreground C_0: 4094434349935512202
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

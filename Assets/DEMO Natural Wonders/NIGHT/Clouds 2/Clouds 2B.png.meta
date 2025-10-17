@@ -492,7 +492,22 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Clouds 2B_0: 2682612528653688055
+      Clouds 2B_1: -5210056493521943375
+      Clouds 2B_10: -7379868522489882937
+      Clouds 2B_11: -8017743825609065031
+      Clouds 2B_12: 5269638699863856499
+      Clouds 2B_13: -399171164987450982
+      Clouds 2B_14: -291255935169068271
+      Clouds 2B_2: 8666329967348830410
+      Clouds 2B_3: -234451861807961858
+      Clouds 2B_4: 4152851944536643420
+      Clouds 2B_5: 9214968447371481124
+      Clouds 2B_6: 5073672523356024146
+      Clouds 2B_7: 5649961955640080059
+      Clouds 2B_8: -833025511319349788
+      Clouds 2B_9: 1498606956026419040
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

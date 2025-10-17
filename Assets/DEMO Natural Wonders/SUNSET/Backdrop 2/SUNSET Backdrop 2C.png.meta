@@ -156,7 +156,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      SUNSET Backdrop 2C_0: 2897040397663476623
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

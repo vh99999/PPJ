@@ -156,7 +156,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      NIGHT SKY_0: -6989096172528774354
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

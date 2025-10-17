@@ -156,7 +156,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Parallax Preview_0: -6362349690519720764
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -276,7 +276,13 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Backdrop 3C_0: 5207708238583266533
+      Backdrop 3C_1: 3660173982275907750
+      Backdrop 3C_2: -8689894499791803893
+      Backdrop 3C_3: 5398136371395692797
+      Backdrop 3C_4: -1649271380423461658
+      Backdrop 3C_5: 6367808005682454337
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -276,7 +276,13 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      DAY Clouds 2C_0: 1345572927630582824
+      DAY Clouds 2C_1: -7784894346320212085
+      DAY Clouds 2C_2: -3429620177642998073
+      DAY Clouds 2C_3: -8427152922454799032
+      DAY Clouds 2C_4: -8641133265933941484
+      DAY Clouds 2C_5: 6426190652129212756
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

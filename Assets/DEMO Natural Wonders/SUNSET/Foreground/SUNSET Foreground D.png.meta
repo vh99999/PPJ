@@ -156,7 +156,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      SUNSET Foreground D_0: 8039079960443207080
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

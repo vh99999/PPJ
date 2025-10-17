@@ -492,7 +492,22 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      DAY Clouds 2B_0: -7550356493098028715
+      DAY Clouds 2B_1: 4627274256379229822
+      DAY Clouds 2B_10: -3818362931042327433
+      DAY Clouds 2B_11: 2491810114107666759
+      DAY Clouds 2B_12: 828572777556554252
+      DAY Clouds 2B_13: -9175225308429770863
+      DAY Clouds 2B_14: 1509277435909289414
+      DAY Clouds 2B_2: 6548288865434812805
+      DAY Clouds 2B_3: -1127815666832246901
+      DAY Clouds 2B_4: -5517159763868160764
+      DAY Clouds 2B_5: -5668086781276536230
+      DAY Clouds 2B_6: -3613820404456057
+      DAY Clouds 2B_7: 399139568685418114
+      DAY Clouds 2B_8: -7538754357568220007
+      DAY Clouds 2B_9: -289925989804964467
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

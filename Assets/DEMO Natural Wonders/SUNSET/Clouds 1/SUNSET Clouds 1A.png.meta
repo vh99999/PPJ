@@ -156,7 +156,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      SUNSET Clouds 1A_0: -5747293585976785502
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

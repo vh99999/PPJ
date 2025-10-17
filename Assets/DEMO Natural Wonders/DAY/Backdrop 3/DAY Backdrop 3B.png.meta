@@ -156,7 +156,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      DAY Backdrop 3B_0: 8655236562908852325
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

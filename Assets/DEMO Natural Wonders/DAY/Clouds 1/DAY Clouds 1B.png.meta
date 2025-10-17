@@ -156,7 +156,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      DAY Clouds 1B_0: 2383350565838690605
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -156,7 +156,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      DAY SKY_0: -4735975890750723309
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

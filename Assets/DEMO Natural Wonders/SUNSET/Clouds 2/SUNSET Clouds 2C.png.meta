@@ -276,7 +276,13 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      SUNSET Clouds 2C_0: 1605479730657324365
+      SUNSET Clouds 2C_1: 6085135863675465775
+      SUNSET Clouds 2C_2: -5477471183587082652
+      SUNSET Clouds 2C_3: 6829593347639557601
+      SUNSET Clouds 2C_4: -5734024685151822019
+      SUNSET Clouds 2C_5: -8042274546468141131
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

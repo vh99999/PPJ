@@ -63,12 +63,20 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\SpawnerScript.cs" />
     <Compile Include="Assets\Scripts\BackgroundRepeater.cs" />
+    <Compile Include="Assets\Scripts\Treasure.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\Parallax.cs" />
     <Compile Include="Assets\Scripts\DestroyerScript.cs" />
+    <Compile Include="Assets\Scripts\PlayerController1.cs" />
+    <Compile Include="Assets\Scripts\UIButtonQuitGame.cs" />
     <Compile Include="Assets\Scripts\ControleCamera.cs" />
     <Compile Include="Assets\Simple 2D Platformer BE2\ReadMe\Scripts\ReadmeBE2.cs" />
+    <Compile Include="Assets\Scripts\Health.cs" />
+    <Compile Include="Assets\Scripts\DestroyerScript1.cs" />
+    <Compile Include="Assets\Scripts\GameManager.cs" />
+    <Compile Include="Assets\Scripts\UIButtonLevelLoad.cs" />
     <Compile Include="Assets\Scripts\Placar.cs" />
+    <Compile Include="Assets\Scripts\TriggerLevelLoad.cs" />
     <Compile Include="Assets\Scripts\CameraScript.cs" />
   </ItemGroup>
   <ItemGroup>

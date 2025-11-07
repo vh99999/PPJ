@@ -713,6 +713,7 @@ GameObject:
   - component: {fileID: 1763949537}
   - component: {fileID: 1763949543}
   - component: {fileID: 1763949542}
+  - component: {fileID: 1763949544}
   m_Layer: 0
   m_Name: BALLS
   m_TagString: Untagged
@@ -729,7 +730,7 @@ Rigidbody:
   m_GameObject: {fileID: 1763949536}
   serializedVersion: 4
   m_Mass: 1
-  m_Drag: 0.1
+  m_Drag: 0.3
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
@@ -754,7 +755,7 @@ SphereCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1763949536}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 1fe2be235504066439d8d6ae25620180, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -847,7 +848,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a0d000329171ae4192bd701a9dcfbe5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  x: 0
+  x: 2
   z: -15
 --- !u!120 &1763949543
 LineRenderer:
@@ -964,6 +965,20 @@ LineRenderer:
   m_UseWorldSpace: 1
   m_Loop: 0
   m_ApplyActiveColorSpace: 1
+--- !u!114 &1763949544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1763949536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec85356fa044ec8439945f985ecb5c4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxX: 10
+  maxZ: 10
 --- !u!1 &1859923430 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -466329591000292508, guid: 86322eeaf56b34e4d9e8a3c34c5312ed, type: 3}

@@ -10,7 +10,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{4B6E7BD4-AA71-2EC2-CA08-8C8C692C8F4C}</ProjectGuid>
+    <ProjectGuid>{4EFCEF7B-4282-6934-3D9C-816415E1A668}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -62,6 +62,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\SmoothFollow.cs" />
+    <Compile Include="Assets\Scripts\Tacada.cs" />
     <Compile Include="Assets\Scripts\Teste.cs" />
   </ItemGroup>
   <ItemGroup>

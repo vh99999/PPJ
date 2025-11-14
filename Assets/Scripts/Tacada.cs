@@ -23,7 +23,7 @@ public class Tacada : MonoBehaviour
     void Update()
     {
         velocidade = rb.velocity.magnitude;
-        if (velocidade < 0.05)
+        if (velocidade < 0.1)
         {
             rb.velocity = Vector3.zero;
             rb.angularVelocity = Vector3.zero;
@@ -71,8 +71,11 @@ public class Tacada : MonoBehaviour
                         new Vector3(2 * x, 0, 2 * z),
                         ForceMode.Impulse);
                     lr.enabled = false;
-                    // if (GameManager.gm)
-                    //    G
+                     if (GameManager.gm)
+                    {
+                        GameManager.gm.tacada();
+                    }
+                   
                 }
 
             }

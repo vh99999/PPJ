@@ -1,37 +1,52 @@
-﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Parallax : MonoBehaviour {
+public class Parallax : MonoBehaviour
+{
+    public float speedMultiplier;
+    private GameManager gm;
 
+    private Transform[] backgrounds;
+    private float backgroundWidth;
 
-	// parallaxSpeed deve ser valor entre 0 e 1
-	// 0 -> Sem parallax
-	// 1 -> Cenário imóvel em relação a camera (se move junto com a camera)
-	[Range(0f,1f)]
-	public float parallaxSpeed = 0f;
+    void Start()
+    {
+        int childCount = transform.childCount;
+        backgrounds = new Transform[childCount];
 
-	private Transform cameraTransform;
+        for (int i = 0; i < childCount; i++)
+        {
+            backgrounds[i] = transform.GetChild(i);
+        }
 
-	private float Xant; // x da camera no frame anterior
+        backgroundWidth = backgrounds[0].GetComponent<SpriteRenderer>().bounds.size.x;
+        gm = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
 
+    }
 
-	// Use this for initialization
-	void Start () {
-		cameraTransform = Camera.main.transform;
-		Xant = cameraTransform.position.x;
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		float deltaCamera = cameraTransform.position.x - Xant;
+    void Update()
+    {
+        float speed = gm.speedMultiplier * speedMultiplier;
 
-		if (true){//deltaCamera > 0) {
-			Vector3 newPos = transform.position;
-			newPos.x += parallaxSpeed * deltaCamera;
-			transform.position = newPos;
-		}
+        foreach (Transform bg in backgrounds)
+        {
+            bg.Translate(Vector2.left * speed * Time.deltaTime);
+        }
 
-		Xant = cameraTransform.position.x;
-	}
+        Transform first = backgrounds[0];
+        Transform last = backgrounds[backgrounds.Length - 1];
+
+        float halfWidth = backgroundWidth / 2f;
+        if (first.position.x + halfWidth < -Camera.main.orthographicSize * Camera.main.aspect)
+        {
+            Vector3 pos = first.position;
+            pos.x = last.position.x + backgroundWidth;
+            first.position = pos;
+
+            for (int i = 0; i < backgrounds.Length - 1; i++)
+            {
+                backgrounds[i] = backgrounds[i + 1];
+            }
+            backgrounds[backgrounds.Length - 1] = first;
+        }
+    }
 }

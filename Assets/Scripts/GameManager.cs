@@ -1,115 +1,185 @@
-﻿using UnityEngine;
+using JetBrains.Annotations;
 using System.Collections;
+using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+public class GameManager : MonoBehaviour
+{
+    public static GameManager Instance { get; private set; }
 
-public class GameManager : MonoBehaviour {
+    [Header("Spawn Objects")]
+    public GameObject[] groundEnemies;
+    public GameObject[] flyingEnemies;
+    public GameObject collectible;
 
-	public static GameManager gm;
+    [Header("Spawn Points")]
+    public GameObject[] spawnPoints;
+    public Transform collectibleSpawnPoint;
 
-	[Tooltip("If not set, the player will default to the gameObject tagged as Player.")]
-	public GameObject player;
+    [Header("Spawn Time")]
+    public float timer;
+    public float timeBetweenSpawns;
 
-	public enum gameStates {Playing, Death, GameOver, BeatLevel};
-	public gameStates gameState = gameStates.Playing;
+    [Header("Power-Ups")]
+    public GameObject magnetPowerUp;
+    public Transform magnetSpawnPoint;
 
-	public int score=0;
-	public bool canBeatLevel = false;
-	public int beatLevelScore=0;
+    private float magnetTimerSpawn;
+    private float magnetSpawnInterval;
+    public bool isMagnetActive;
+    public float magnetDuration = 5f;
+    private float magnetTimer;
 
-	public GameObject mainCanvas;
-	public Text mainScoreDisplay;
-	public GameObject gameOverCanvas;
-	public Text gameOverScoreDisplay;
+    [Header("Player")]
+    public Animator playerAnimator;
+    public Transform playerTransform;
+    public float speedMultiplier;
+    private float distance;
 
-	[Tooltip("Only need to set if canBeatLevel is set to true.")]
-	public GameObject beatLevelCanvas;
+    [Header("UI")]
+    public Text distanceUI;
+    public Text highScoreUI;
+    public Text collectibleUI;
+    public GameObject gameOverPanel;
 
-	public AudioSource backgroundMusic;
-	public AudioClip gameOverSFX;
+    private float highScore;
+    private int pacas;
+    private bool isGameOver = false;
 
-	[Tooltip("Only need to set if canBeatLevel is set to true.")]
-	public AudioClip beatLevelSFX;
+    private float collectibleTimer;
+    private float collectibleSpawnTime;
 
-	private Health playerHealth;
+    void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
+    }
 
-	void Start () {
-		if (gm == null) 
-			gm = gameObject.GetComponent<GameManager>();
+    void Start()
+    {
+        highScore = PlayerPrefs.GetFloat("highScore", 0);
+        pacas = PlayerPrefs.GetInt("pacas", 0);
 
-		if (player == null) {
-			player = GameObject.FindWithTag("Player");
-		}
+        highScoreUI.text = "High Score: " + highScore.ToString("F2");
+        collectibleUI.text = "Pacas: " + pacas;
 
-		playerHealth = player.GetComponent<Health>();
+        timeBetweenSpawns = Random.Range(1f, 3f);
+        collectibleSpawnTime = Random.Range(4f, 8f);
+        magnetSpawnInterval = Random.Range(10f, 20f);
 
-		// setup score display
-		Collect (0);
+        gameOverPanel.SetActive(false);
+    }
 
-		// make other UI inactive
-		gameOverCanvas.SetActive (false);
-		if (canBeatLevel)
-			beatLevelCanvas.SetActive (false);
-	}
+    void Update()
+    {
+        if (isGameOver) return;
 
-	void Update () {
-		switch (gameState)
-		{
-			case gameStates.Playing:
-				if (playerHealth.isAlive == false)
-				{
-					// update gameState
-					gameState = gameStates.Death;
+        // Score
 
-					// set the end game score
-					gameOverScoreDisplay.text = mainScoreDisplay.text;
+        distanceUI.text = "Distance: " + distance.ToString("F2");
+        collectibleUI.text = "Pacas: " + pacas;
 
-					// switch which GUI is showing		
-					mainCanvas.SetActive (false);
-					gameOverCanvas.SetActive (true);
-				} else if (canBeatLevel && score>=beatLevelScore) {
-					// update gameState
-					gameState = gameStates.BeatLevel;
+        if (distance > highScore)
+        {
+            highScore = distance;
+            PlayerPrefs.SetFloat("highScore", highScore);
+        }
 
-					// hide the player so game doesn't continue playing
-					player.SetActive(false);
+        speedMultiplier += Time.deltaTime * 0.1f;
+        playerAnimator.speed = (float)(1 + speedMultiplier * 0.1);
+        timer += Time.deltaTime;
+        distance += Time.deltaTime * 0.8f;
 
-					// switch which GUI is showing			
-					mainCanvas.SetActive (false);
-					beatLevelCanvas.SetActive (true);
-				}
-				break;
-			case gameStates.Death:
-				backgroundMusic.volume -= 0.01f;
-				if (backgroundMusic.volume<=0.0f) {
-					AudioSource.PlayClipAtPoint (gameOverSFX,gameObject.transform.position);
+        // Enemies
 
-					gameState = gameStates.GameOver;
-				}
-				break;
-			case gameStates.BeatLevel:
-				backgroundMusic.volume -= 0.01f;
-				if (backgroundMusic.volume<=0.0f) {
-					AudioSource.PlayClipAtPoint (beatLevelSFX,gameObject.transform.position);
-					
-					gameState = gameStates.GameOver;
-				}
-				break;
-			case gameStates.GameOver:
-				// nothing
-				break;
-		}
+        if (timer > timeBetweenSpawns)
+        {
+            timer = 0;
+            timeBetweenSpawns = Random.Range(1f, 3f);
 
-	}
+            int randomPoint = Random.Range(0, spawnPoints.Length);
 
+            GameObject enemyToSpawn = null;
 
-	public void Collect(int amount) {
-		score += amount;
-		if (canBeatLevel) {
-			mainScoreDisplay.text = score.ToString () + " of "+beatLevelScore.ToString ();
-		} else {
-			mainScoreDisplay.text = score.ToString ();
-		}
+            if (randomPoint == 0)
+            {
+                int randomGround = Random.Range(0, groundEnemies.Length);
+                enemyToSpawn = groundEnemies[randomGround];
+            }
+            else
+            {
+                int randomFlying = Random.Range(0, flyingEnemies.Length);
+                enemyToSpawn = flyingEnemies[randomFlying];
+            }
 
-	}
+            Instantiate(enemyToSpawn, spawnPoints[randomPoint].transform.position, Quaternion.identity);
+        }
+
+        // Collectible
+
+        collectibleTimer += Time.deltaTime;
+        if (collectibleTimer > collectibleSpawnTime)
+        {
+            collectibleTimer = 0;
+            collectibleSpawnTime = Random.Range(2f, 6f);
+            Instantiate(collectible, collectibleSpawnPoint.position, Quaternion.identity);
+        }
+
+        // Power-Up
+
+        magnetTimerSpawn += Time.deltaTime;
+        if (magnetTimerSpawn > magnetSpawnInterval)
+        {
+            magnetTimerSpawn = 0;
+            magnetSpawnInterval = Random.Range(10f, 20f);
+            Instantiate(magnetPowerUp, magnetSpawnPoint.position, Quaternion.identity);
+        }
+
+        if (isMagnetActive)
+        {
+            magnetTimer -= Time.deltaTime;
+            if (magnetTimer < 0)
+                isMagnetActive = false;
+        }
+    }
+
+    public void GameOver()
+    {
+        if (!isGameOver)
+        {
+            StartCoroutine(GameOverRoutine());
+        }
+    }
+
+    private IEnumerator GameOverRoutine()
+    {
+        isGameOver = true;
+        yield return new WaitForSeconds(0.7f);
+        gameOverPanel.SetActive(true);
+        Time.timeScale = 0f;
+    }
+
+    public void RestartGame()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void AddPaca()
+    {
+        pacas++;
+        PlayerPrefs.SetInt("pacas", pacas);
+        collectibleUI.text = "Pacas: " + pacas;
+    }
+
+    public void ActivateMagnet()
+    {
+        isMagnetActive = true;
+        magnetTimer = magnetDuration;
+    }
 }

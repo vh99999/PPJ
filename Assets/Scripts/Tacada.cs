@@ -1,16 +1,22 @@
+using System.Collections;
+using System.Collections.Generic;
+
+
+
 using UnityEngine;
 
 public class Tacada : MonoBehaviour
 {
+
     public float maxX, maxZ;
-    private float x, z;
+    public float x,z;
     private Vector2 pi;
     private Vector2 pf;
     private float velocidade;
     Rigidbody rb;
 
     LineRenderer lr;
-
+    // Start is called before the first frame update
     void Start()
     {
         lr = GetComponent<LineRenderer>();
@@ -68,14 +74,14 @@ public class Tacada : MonoBehaviour
                 if (t.phase == TouchPhase.Ended)
                 {
                     GetComponent<Rigidbody>().AddForce(
-                        new Vector3(2 * x, 0, 2 * z),
+                        new Vector3(5 * x, 0, 5 * z),
                         ForceMode.Impulse);
                     lr.enabled = false;
-                     if (GameManager.gm)
+                    if (GameManager.gm)
                     {
-                        GameManager.gm.tacada();
+                        GameManager.gm.Tacada();
                     }
-                   
+
                 }
 
             }

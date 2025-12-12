@@ -1,53 +1,43 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Build.Content;
 using UnityEngine;
 
-public class Teste : MonoBehaviour
-{
-    public float x, z;
-    float velocidade;
+public class Teste : MonoBehaviour{
+
+    public float x, y;
+    float velocidadade;
     LineRenderer lr;
     Rigidbody rb;
 
     // Start is called before the first frame update
-    void Start()
-    {
+    void Start(){
         lr = GetComponent<LineRenderer>();
         rb = GetComponent<Rigidbody>();
-        if (lr == null)
+
+        if (lr != null){
             Debug.Log("Adicionar LineRenderer");
+        }
     }
 
     // Update is called once per frame
-    void Update()
-    {
+    void Update(){
         lr.SetPosition(0, transform.position);
-        lr.SetPosition(1, new Vector3(transform.position.x + x,
-            transform.position.y,
-            transform.position.z + z
-            )
-        );
-        if (Input.GetButtonDown("Jump") && lr.enabled)
-        {
-            rb.AddForce(new Vector3(
-                2 * x, 0, 2 * z), ForceMode.Impulse);
+        lr.SetPosition(1, new Vector3(transform.position.x + x, transform.position.y, transform.position.z + y));
+
+        if (Input.GetButtonDown("Jump")){
+            GetComponent<Rigidbody>().AddForce(new Vector3(2 * x, 0, 2 * y), ForceMode.Impulse);
             lr.enabled = false;
-            //if (GameManager.gm)
-            //{
-            //    GameManager.gm.tacada();
-            //}
         }
-        velocidade = rb.velocity.magnitude;
-        if (velocidade < 0.15f)
-        {
-            rb.velocity = Vector3.zero;
-            rb.angularVelocity = Vector3.zero;
+
+        velocidadade = rb.velocity.magnitude;
+        // Debug.Log("velocidade: " + velocidadade);
+
+        if (velocidadade < 0.01f){
             lr.enabled = true;
         }
-        else
-        {
+        else{
             lr.enabled = false;
-        }
+        }  
     }
+
 }
